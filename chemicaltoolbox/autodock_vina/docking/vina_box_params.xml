@@ -1,0 +1,42 @@
+<tool id="vina_box_params" name="vina_box_params" version="0.1.0">
+    <requirements>
+        <requirement type="package" version="2018.09.3">rdkit</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+        python '$__tool_directory__/calc_vina_box_params.py' --ligand $infile --config $outfile
+    ]]></command>
+
+    <inputs>
+        <param name="infile" format="mol" type="data" label="Molecule data"
+            help="In MOL format"/>
+    </inputs>
+    
+    <outputs>
+        <data format="txt" name="outfile" />
+    </outputs>
+    
+    <tests>
+        <test>
+            <param name="infile" ftype='mol' value="NUDT5A-x0114_2.mol" />
+            <param name="header" value="True" />
+            <output name="outfile" ftype='txt' file="box_params.txt" />
+        </test>
+    </tests>
+
+    <help><![CDATA[
+        help here
+    ]]></help>
+
+    <citations>
+        <citation type="bibtex">
+            @article{rdkit,
+                author = {Greg Landrum and others},
+                title = {RDKit: Open-source cheminformatics},
+                url ={http://www.rdkit.org}
+            }</citation>
+    </citations>
+
+
+
+</tool>
