@@ -1,0 +1,6 @@
+<toolbox monitor="true">
+    <section id="docking" name="Ligand docking">
+        <tool file="" />
+        <tool file="" />
+    </section>
+</toolbox>

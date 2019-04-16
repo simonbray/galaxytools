@@ -1,0 +1,32 @@
+<tool id="prepare_receptor" name="Prepare receptor" version="0.1.0">
+    <description>Tool to prepare receptor for docking with Autodock Vina</description>
+    <requirements>
+        <requirement type="package" version="1.5.6">mgltools</requirement>
+    </requirements>
+    <stdio>
+        <exit_code range="1" />
+    </stdio>
+    <command><![CDATA[
+        ln -s $receptor ./receptor.pdb && prepare_receptor4.py -r ./receptor.pdb -o "$file_output" -v -U nphs_lps -A hydrogens
+    ]]></command>
+    <inputs>
+        <param type="data" name="receptor" format="pdb" label="Select a PDB file" />
+    </inputs>
+    <outputs>
+        <data name="file_output" format="pdbqt" />
+    </outputs>
+    <tests>
+        <test>
+            <param name="receptor" value="3u1i_for_DM.pdb"/>
+            <output name="file_output" file="3u1i_for_DM.pdbqt"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+
+        This tool uses the MGLTools programming packages to convert a pdb file to pdbqt file, which the Autodock Vina program uses to perform molecular docking. The output file has a similar format to the pdb input, with atom type modified to conform to AutoDock atom types and an extra column containing Gasteiger charges added.
+
+      ]]></help>
+    <citations>
+        <citation type="doi">10.1002/jcc.21334</citation>
+    </citations>
+</tool>

@@ -1,15 +1,19 @@
-<tool id="vina_box_params" name="vina_box_params" version="0.1.0">
+<tool id="vina_box_params" name="Box parameters for docking" version="0.1.0">
+    <description>using Autodock Vina</description>
     <requirements>
         <requirement type="package" version="2018.09.3">rdkit</requirement>
     </requirements>
 
     <command detect_errors="exit_code"><![CDATA[
-        python '$__tool_directory__/calc_vina_box_params.py' --ligand $infile --config $outfile
+        python '$__tool_directory__/calc_vina_box_params.py' --ligand $infile --config $outfile  --tol $tolerance --exh $exhaustiveness
     ]]></command>
 
     <inputs>
         <param name="infile" format="mol" type="data" label="Molecule data"
             help="In MOL format"/>
+        <param name="tolerance" type="float" value="0" label="Tolerance" help="Expand box dimensions by this amount"/>
+        <param name="exhaustiveness" type="float" value="10" label="Exhaustiveness" help="Number of runs Vina should perform in the search box - increase for large box sizes"/>
+        
     </inputs>
     
     <outputs>
@@ -19,7 +23,8 @@
     <tests>
         <test>
             <param name="infile" ftype='mol' value="NUDT5A-x0114_2.mol" />
-            <param name="header" value="True" />
+            <param name="tolerance" value="2" />
+            <param name="exhaustiveness" value="20" />
             <output name="outfile" ftype='txt' file="box_params.txt" />
         </test>
     </tests>
@@ -36,7 +41,5 @@
                 url ={http://www.rdkit.org}
             }</citation>
     </citations>
-
-
 
 </tool>

@@ -1,0 +1,32 @@
+<tool id="prepare_ligand" name="Prepare ligand" version="0.1.0">
+    <description>for docking with Autodock Vina</description>
+    <requirements>
+        <requirement type="package" version="1.5.6">mgltools</requirement>
+    </requirements>
+    <stdio>
+        <exit_code range="1" />
+    </stdio>
+    <command><![CDATA[
+        ln -s $ligand ./ligand.mol2 && prepare_ligand4.py -l ./ligand.mol2 -v -o "$file_output" -U nphs_lps -A hydrogens
+    ]]></command>
+    <inputs>
+        <param type="data" name="ligand" format="mol2" label="The ligand which needs to be prepared" help="In MOL2 format." />
+    </inputs>
+    <outputs>
+        <data name="file_output" format="pdbqt" />
+    </outputs>
+    <tests>
+        <test>
+            <param name="ligand" value="NuBBE_1_obabel_3D.mol2"/>
+            <output name="file_output" file="NuBBE_1_obabel_3D.pdbqt"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+
+        This tool uses the MGLTools programming package to convert a mol2 molecule file to a pdbqt molecule file, which the Autodock Vina program uses to perform molecular docking. The output file has a similar format to the pdb input, with atom types modified to conform to AutoDock atom types and an extra column containing Gasteiger charges added.
+
+    ]]></help>
+    <citations>
+        <citation type="doi">10.1002/jcc.21334</citation>
+    </citations>
+</tool>
