@@ -1,0 +1,5 @@
+source /home/simon/miniconda3/envs/duck/lib/python3.6/site-packages/duck/parameters/tleap/leaprc.ff14SB.redq
+mol = loadpdb protein_out.pdb
+
+savepdb mol protein_out_prot.pdb
+quit

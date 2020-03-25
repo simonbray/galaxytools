@@ -1,0 +1,104 @@
+<tool id="ctb_xchem_duck" name="Dynamic undocking" version="0.1.0">
+    <description>with DuCK</description>
+    <requirements>
+        <requirement type="package" version="3.6">python</requirement>
+        <requirement type="package" version="0.25.2">yank</requirement>
+        <requirement type="package" version="2018.03.2">rdkit</requirement>
+        <requirement type="package" version="1.6">pdbfixer</requirement>
+        <requirement type="package" version="swang">openforcefield</requirement>
+        <!-- <requirement type="package" version="0.0.30">duck-xchem</requirement> -->
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        ## frag_duck $run_yaml
+        cp /home/simon/Repos/galaxytools/chemicaltoolbox/xchem-duck/test-data/* .
+    ]]></command>
+    <configfiles>
+        <configfile name="run_yaml">
+prot_code: $prot_code
+prot_int: $prot_int
+lig_id: $lig_id
+cutoff: $cutoff
+md_len: $md_len
+distance: $distance
+init_velocity: $init_velocity
+num_smd_cycles: $num_smd_cycles
+apo_pdb_file: $apo_pdb_file
+mol_file: $mol_file
+        </configfile> <!-- no gpu id yet -->
+    </configfiles>
+    <inputs>
+        <param name="apo_pdb_file" type="data" format="pdb" label="Apoprotein PDB file" help="PDB file excluding ligand coordinates"/>
+        <param name="mol_file" type="data" format="mol" label="Ligand MOL file" help="Ligand file in MOL/SDF format"/>
+        <param name="prot_code" type="text" label="Protein PDB code"> <!-- necessary? -->
+            <validator type="regex" message="Invalid accession code">^[0-9][a-zA-Z0-9]{3}$</validator>
+        </param>
+        <param name="lig_id" type="text" label="Ligand ID"/> <!-- no validator -->
+        <param name="prot_int" type="text" label="prot_int"/> <!-- whatever this is -->
+        <param name="cutoff" type="float" value="0" min="0" label="Cutoff value for amino acids" help="Only amino acids less than this distance (in angstroms) from the ligand will be considered."/>
+        <param name="md_len" type="float" value="0" min="0" label="Length of the MD simulation" help="Length of the simulation in nanoseconds."/>
+        <param name="distance" type="float" value="0" min="0" label="Length of the MD simulation" help="Length of the simulation in nanoseconds."/>
+        <param name="init_velocity" type="float" value="0" min="0" label="Pulling velocity" />
+        <param name="num_smd_cycles" type="integer" value="1" min="1" label="Number of steered MD cycles" />
+    </inputs>
+
+    <outputs>
+        <!-- <output name="smd_0_325.csv" format="csv"/> -->
+        <collection name="output" type="list">
+            <discover_datasets pattern="(?P&lt;designation&gt;.*)" visible="true" />
+        </collection>
+    </outputs>
+
+    <tests>
+        <test>
+            <param name="apo_pdb_file" value="1n2v_apo.pdb" />
+            <param name="mol_file" value="ligand.mol" />
+            <param name="prot_code" value="1n2v" />
+            <param name="prot_int" value="A_ASP_156_OD2" />
+            <param name="lig_id" value="BDI" />
+            <param name="cutoff" value="9" />
+            <param name="md_len" value="0.5" />
+            <param name="distance" value="2.5" />
+            <param name="init_velocity" value="0.00001" />
+            <param name="num_smd_cycles" value="1" />
+            <output_collection name="output" type="list" count="47" />
+        </test>
+    </tests>
+    
+    <help><![CDATA[
+
+Perform dynamic undocking as described by Ruiz-Carmona et al., using the open-source implementation produced by the XChem group at the Diamond Light Source.
+
+-----
+
+.. class:: infomark
+
+**Input**
+
+- A protein structure in PDB format.
+- A ligand structure in MOL/SDF format.
+
+-----
+
+.. class:: infomark
+
+**Output**
+
+TBD
+
+    ]]></help>
+    <citations>
+        <citation type="doi">10.1038/nchem.2660</citation>
+        <citation type="bibtex">
+@misc{xchem-duck,
+  author = {Bradley, Anthony},
+  title = {XChem DuCK},
+  year = {201},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/xchem/duck}},
+  commit = {e98d406f7fcc3bdea074d3229dfe90a4874bdfcd}
+}    
+        </citation>
+        
+    </citations>
+</tool>
