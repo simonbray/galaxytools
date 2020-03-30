@@ -6,11 +6,16 @@
         <requirement type="package" version="2018.03.2">rdkit</requirement>
         <requirement type="package" version="1.6">pdbfixer</requirement>
         <requirement type="package" version="swang">openforcefield</requirement>
+        <requirement type="package" version="2.3">networkx</requirement>
         <!-- <requirement type="package" version="0.0.30">duck-xchem</requirement> -->
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        ## frag_duck $run_yaml
-        cp /home/simon/Repos/galaxytools/chemicaltoolbox/xchem-duck/test-data/* .
+        pip install --force-reinstall https://github.com/simonbray/duck/archive/cpu-version.zip &&
+        mv $apo_pdb_file apo.pdb &&
+        mv $mol_file lig.mol &&
+        mv $run_yaml ./run.yaml &&
+        frag_duck ./run.yaml
+        ## cp /home/simon/Repos/galaxytools/chemicaltoolbox/xchem-duck/test-data/* .
     ]]></command>
     <configfiles>
         <configfile name="run_yaml">
@@ -22,8 +27,9 @@ md_len: $md_len
 distance: $distance
 init_velocity: $init_velocity
 num_smd_cycles: $num_smd_cycles
-apo_pdb_file: $apo_pdb_file
-mol_file: $mol_file
+apo_pdb_file: apo.pdb  # $apo_pdb_file
+mol_file: lig.mol  # $mol_file
+gpu_id: 3
         </configfile> <!-- no gpu id yet -->
     </configfiles>
     <inputs>
@@ -44,7 +50,7 @@ mol_file: $mol_file
     <outputs>
         <!-- <output name="smd_0_325.csv" format="csv"/> -->
         <collection name="output" type="list">
-            <discover_datasets pattern="(?P&lt;designation&gt;.*)" visible="true" />
+            <discover_datasets pattern="(?P&lt;designation&gt;.*)" />
         </collection>
     </outputs>
 
@@ -60,7 +66,10 @@ mol_file: $mol_file
             <param name="distance" value="2.5" />
             <param name="init_velocity" value="0.00001" />
             <param name="num_smd_cycles" value="1" />
-            <output_collection name="output" type="list" count="47" />
+            <output_collection name="output" type="list"><!-- count="50"> -->
+                <element name="smd_0_325.pdb" file="smd_0_325.pdb" compare="sim_size"/>
+                <element name="smd_0_325.csv" file="smd_0_325.csv" compare="sim_size"/>
+            </output_collection>
         </test>
     </tests>
     
