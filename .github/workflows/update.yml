@@ -79,8 +79,10 @@ jobs:
         git push origin master
 
         echo "Authenticating..."
-        echo ${{ secrets.GITHUB_TOKEN }} > token.txt
+        echo ${{ secrets.PAT }} > token.txt
         gh auth login --with-token < token.txt
+
+        git status
 
         #echo "Creating a PR..."
         gh pr create --fill --repo simonbray/galaxytools
