@@ -62,14 +62,14 @@ jobs:
         #echo "Authenticating..."
         #gh auth login --with-token < token.txt
 
-        echo "Getting git remote"
-        git remote -v
-
         echo "Adding upstream..."
         git remote add upstream https://github.com/bgruening/galaxytools.git
 
+        echo "Getting git remote"
+        git remote -v
+
         echo "Pulling latest from upstream"
-        git pull upstream master 
+        git pull upstream master --allow-unrelated-histories
 
         cd chemicaltoolbox/im-pipelines
 
