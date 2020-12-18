@@ -67,7 +67,7 @@ jobs:
 
         cd chemicaltoolbox/im-pipelines
 
-        echo "Current directory is:"
+        echo "Current directory is: "
         pwd
 
         echo "Running autoupdate command..."
