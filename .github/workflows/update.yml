@@ -59,11 +59,17 @@ jobs:
 
         #echo ${{ secrets.PAT }} > token.txt
 
-        echo "Authenticating..."
+        #echo "Authenticating..."
         #gh auth login --with-token < token.txt
 
         echo "Getting git remote"
         git remote -v
+
+        echo "Adding upstream..."
+        git remote add upstream https://github.com/bgruening/galaxytools.git
+
+        echo "Pulling latest from upstream"
+        git pull upstream master 
 
         cd chemicaltoolbox/im-pipelines
 
