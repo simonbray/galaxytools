@@ -84,4 +84,4 @@ jobs:
         git push origin master
 
         #echo "Creating a PR..."
-        #gh pr create --fill --repo simonbray/galaxytools
+        gh pr create --fill --repo simonbray/galaxytools
