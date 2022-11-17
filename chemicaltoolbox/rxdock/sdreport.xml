@@ -11,7 +11,7 @@
 	    $nh
 	    $norm
 	    $input
-	    > $output
+	  | sed 's/[[:blank:]]\+/\t/g' > $output  # replace whitespace with tabs
     ]]></command>
 
     <inputs>
