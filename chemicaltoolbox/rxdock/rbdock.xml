@@ -38,7 +38,10 @@ ls ligands????.sdf | parallel --will-cite -j \${GALAXY_SLOTS:-2} $'
         -p dock.prm
         -n '$num'
         -o {}_output
-        #if $seed:
+        #if $threshold:
+	    -t $threshold
+	#end if
+	#if $seed:
             -s '$seed'
         #end if
 	'
@@ -99,6 +102,7 @@ END_SECTION
 
         <param name="num" type="integer" value="10" label="Number of dockings" help="Number of poses to generate"/>
         <param type="data" name="restraints" format="phar" label="Pharmacophoric restraints" optional="true" help="Restrain docked poses by specifying pharmacophores."/>
+        <param type="data" name="threshold" format="txt" label="Threshold value for docking" optional="true" help="Suitable parameters can be found using the rbhtfinder tool."/>
         <conditional name="filter">
             <param name="filter_select" type="select" label="Filter the docking results" help="Using sdfilter">
                 <option value="filter">Show filter options</option>
@@ -261,6 +265,7 @@ END_SECTION
             </conditional>
             <param name="name"/>
         </test>
+        <!-- test with pharmacophore -->
         <test>
             <param name="receptor" value="receptor.mol2"/>
             <param name="ligands" value="ligands_names.sdf"/>
@@ -269,6 +274,30 @@ END_SECTION
             <param name="flex" value="3"/>
             <param name="seed" value="3"/>
             <conditional name="filter">
+                <param name="filter_select" value="filter"/>
+                <param name="score" value="10"/>
+                <param name="nscore" value="1"/>
+            </conditional>
+            <param name="restraints" value="pharma.restr"/>
+            <param name="name"/>
+            <output name="output">
+                <assert_contents>
+                    <has_text text="Rbt.Current_Directory"/>
+                     <has_n_lines n="384"/>
+                    <has_text_matching expression="^([^\$]+?\$\$\$\$){2}?$"/>
+                </assert_contents>
+            </output>
+        </test>
+        <!-- test with pharmacophore and threshold file -->
+        <test>
+            <param name="receptor" value="receptor.mol2"/>
+            <param name="ligands" value="ligands_names.sdf"/>
+            <param name="active_site" value="receptor.as"/>
+            <param name="num" value="1"/>
+            <param name="flex" value="3"/>
+            <param name="seed" value="3"/>
+            <param name="threshold" value="thresholds.txt"/>
+	    <conditional name="filter">
                 <param name="filter_select" value="filter"/>
                 <param name="score" value="10"/>
                 <param name="nscore" value="1"/>
