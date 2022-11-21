@@ -36,12 +36,13 @@ ls ligands????.sdf | parallel --will-cite -j \${GALAXY_SLOTS:-2} $'
     rbdock -i {}
         -r receptor.prm
         -p dock.prm
-        -n '$num'
+        -n $num
         -o {}_output
         #if $threshold:
-	    -t $threshold
-	#end if
-	#if $seed:
+            -t $threshold
+            -C
+        #end if
+        #if $seed:
             -s '$seed'
         #end if
 	'
