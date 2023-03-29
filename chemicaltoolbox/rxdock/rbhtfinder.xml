@@ -39,17 +39,18 @@
 
 .. class:: infomark
 
-TODO...
+The rbhtfinder program is part of the rDock suite, and helps users to find suitable thresholds for docking, in order to strike a balance between generating an adequate number of poses and minimal compute time.
 
-This tool produces a tabular report from an SD file using the sdreport tool from the rxDock suite.
-See https://www.rxdock.org for more details about rxDock and associated programs.
+rDock allows specifying required thresholds for docking scores and pharmacophoric restraints; if these thresholds are not met after a specified number of poses, the compound will be discarded. Rbhtfinder allows specifying two points at which thresholds will be applied, the "Number of poses in stage 1 and 2" parameters. It will generate a list of possible threshold values for all values between the "Maximum" and "Minimum" parameters, and predict the time and number of poses rDock would return based on those values.
+
+See https://rdock.sourceforge.net/ for more details about rDock and associated programs.
 
 -----
 
 .. class:: infomark
 
 **Inputs**
-An SD-file, together with names of fields to extract.
+A tabular file produced using sdreport, generated from an SD-file produced by an initial docking run in which a small subset of the compounds are docked exhaustively (e.g. 100 poses). The results of this initial run will be used to generate the predicted times and percentages if various thresholds were to be applied.
 
 -----
 
