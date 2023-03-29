@@ -5,7 +5,13 @@
         <token name="@GALAXY_VERSION@">0</token>
     </macros>
     <expand macro="requirements"/>
+    <environment_variables>
+        <environment_variable name="RBT_ROOT">/opt/miniconda3/envs/__rdock@2013.1-0/share/rdock-2013.1-1</environment_variable>
+    </environment_variables>
+
     <command><![CDATA[
+##RBDOCK_PATH=`which rbdock` &&
+##RBT_ROOT=`dirname $RBDOCK_PATH` &&
 ln -s '$active_site' receptor.as &&
 ln -s '$receptor' receptor.mol2 &&
 

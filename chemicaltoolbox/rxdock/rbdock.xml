@@ -11,7 +11,9 @@
     <command><![CDATA[
 ln -s '$active_site' receptor.as &&
 ln -s '$receptor' receptor.mol2 &&
-
+#if $threshold:
+    ln -s '$threshold' threshold.txt &&
+#end if
 #if $custom_rec.custom_rec_select == 'true':
     ## simple check that the receptor file name is correct
     grep -q 'RECEPTOR_FILE receptor.mol2' $custom_rec.prm_file || (echo "Error: a custom receptor.prm file must contain the line 'RECEPTOR_FILE receptor.mol2'" >&2 && exit 1) &&
@@ -39,7 +41,7 @@ ls ligands????.sdf | parallel --will-cite -j \${GALAXY_SLOTS:-2} $'
         -n $num
         -o {}_output
         #if $threshold:
-            -t $threshold
+            -t threshold.txt
             -C
         #end if
         #if $seed:

@@ -1,0 +1,366 @@
+
+  rDOCK(R)          3D
+libRbt.so/2021.1/901 2021/07/19
+ 21 22  0  0  0  0  0  0  0  0999 V2000
+   -5.0294  -87.4674  -50.9957 N   0  0  0  0  0  0
+   -5.2832  -86.8523  -49.8416 C   0  0  0  0  0  0
+   -6.2518  -87.2065  -48.9979 N   0  0  0  0  0  0
+   -7.0346  -88.2592  -49.3386 C   0  0  0  0  0  0
+   -6.8497  -88.9727  -50.5237 C   0  0  0  0  0  0
+   -5.7959  -88.5238  -51.3204 C   0  0  0  0  0  0
+   -7.6967  -90.1123  -50.9044 C   0  0  0  0  0  0
+   -7.1406  -91.3885  -51.0930 C   0  0  0  0  0  0
+   -7.9466  -92.4742  -51.4481 C   0  0  0  0  0  0
+   -9.3168  -92.2929  -51.6192 C   0  0  0  0  0  0
+   -9.8873  -91.0353  -51.4393 C   0  0  0  0  0  0
+   -9.0803  -89.9502  -51.0843 C   0  0  0  0  0  0
+   -4.5046  -85.7904  -49.4997 N   0  0  0  0  0  0
+   -5.5110  -89.0943  -52.5482 N   0  0  0  0  0  0
+  -10.3097  -93.6293  -52.0555 Cl  0  0  0  0  0  0
+   -7.7618  -89.7207  -47.3641 C   0  0  0  0  0  0
+   -8.1373  -88.6371  -48.3686 C   0  0  0  0  0  0
+   -4.6761  -85.3058  -48.6315 H   0  0  0  0  0  0
+   -3.7627  -85.4946  -50.1163 H   0  0  0  0  0  0
+   -6.2437  -89.1297  -53.2492 H   0  0  0  0  0  0
+   -4.8814  -89.8899  -52.5305 H   0  0  0  0  0  0
+  1  2  2  0  0  0
+  1  6  1  0  0  0
+  2  3  1  0  0  0
+  2 13  1  0  0  0
+  3  4  2  0  0  0
+  4  5  1  0  0  0
+  4 17  1  0  0  0
+  5  6  2  0  0  0
+  5  7  1  0  0  0
+  6 14  1  0  0  0
+  7  8  2  0  0  0
+  7 12  1  0  0  0
+  8  9  1  0  0  0
+  9 10  2  0  0  0
+ 10 11  1  0  0  0
+ 10 15  1  0  0  0
+ 11 12  2  0  0  0
+ 13 18  1  0  0  0
+ 13 19  1  0  0  0
+ 14 20  1  0  0  0
+ 14 21  1  0  0  0
+ 16 17  1  0  0  0
+M  END
+>  <CHROM.1>
+-93.84588255,-119.38539655,-120.50884912,-7.48609538,-89.80724929,-50.61142726
+-0.69410301,-0.73093419,-2.12889851
+
+>  <Family>
+A
+
+>  <Name>
+1-pyrimethamine
+
+>  <PC_uM>
+3.7
+
+>  <RI>
+-2.05871e+09
+
+>  <RL_uM>
+2.3
+
+>  <Rbt.Current_Directory>
+/home/sbray/GitRepos/galaxytools/chemicaltoolbox/rxdock/test-data
+
+>  <Rbt.Executable>
+rbdock ($Id: //depot/dev/client3/rdock/2021.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>
+libRbt.so (2021.1, Build901 2021/07/19)
+
+>  <Rbt.Parameter_File>
+/opt/rDock/data/scripts/dock.prm
+
+>  <Rbt.Receptor>
+receptor.prm
+
+>  <SCORE>
+6.75281
+
+>  <SCORE.INTER>
+8.4
+
+>  <SCORE.INTER.CONST>
+1
+
+>  <SCORE.INTER.POLAR>
+0
+
+>  <SCORE.INTER.REPUL>
+0
+
+>  <SCORE.INTER.ROT>
+3
+
+>  <SCORE.INTER.VDW>
+0
+
+>  <SCORE.INTER.norm>
+0.494118
+
+>  <SCORE.INTRA>
+-1.64719
+
+>  <SCORE.INTRA.DIHEDRAL>
+-1.21142
+
+>  <SCORE.INTRA.DIHEDRAL.0>
+6.01924
+
+>  <SCORE.INTRA.POLAR>
+0
+
+>  <SCORE.INTRA.POLAR.0>
+0
+
+>  <SCORE.INTRA.REPUL>
+0
+
+>  <SCORE.INTRA.REPUL.0>
+0
+
+>  <SCORE.INTRA.VDW>
+-1.04148
+
+>  <SCORE.INTRA.VDW.0>
+-1.0079
+
+>  <SCORE.INTRA.norm>
+-0.0968935
+
+>  <SCORE.RESTR>
+0
+
+>  <SCORE.RESTR.PHARMA>
+0
+
+>  <SCORE.RESTR.PHARMA.con_1>
+0
+
+>  <SCORE.RESTR.PHARMA.con_2>
+0
+
+>  <SCORE.RESTR.PHARMA.con_3>
+0
+
+>  <SCORE.RESTR.PHARMA.con_4>
+0
+
+>  <SCORE.RESTR.norm>
+0
+
+>  <SCORE.SYSTEM>
+0
+
+>  <SCORE.SYSTEM.CONST>
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>
+0
+
+>  <SCORE.SYSTEM.norm>
+0
+
+>  <SCORE.heavy>
+17
+
+>  <SCORE.norm>
+0.397224
+
+>  <TG_uM>
+0.39
+
+>  <set>
+1
+
+$$$$
+
+  rDOCK(R)          3D
+libRbt.so/2021.1/901 2021/07/19
+ 22 23  0  0  0  0  0  0  0  0999 V2000
+   -8.8428  -86.3624  -43.5644 N   0  0  0  0  0  0
+   -9.0031  -85.0484  -43.4151 C   0  0  0  0  0  0
+   -8.4116  -84.1278  -44.1755 N   0  0  0  0  0  0
+   -7.5872  -84.5559  -45.1625 C   0  0  0  0  0  0
+   -7.3554  -85.9107  -45.4044 C   0  0  0  0  0  0
+   -8.0409  -86.7833  -44.5585 C   0  0  0  0  0  0
+   -6.4592  -86.3854  -46.4690 C   0  0  0  0  0  0
+   -6.6880  -86.0353  -47.8099 C   0  0  0  0  0  0
+   -5.8313  -86.4805  -48.8238 C   0  0  0  0  0  0
+   -4.7328  -87.2858  -48.5067 C   0  0  0  0  0  0
+   -4.4972  -87.6423  -47.1775 C   0  0  0  0  0  0
+   -5.3542  -87.1958  -46.1673 C   0  0  0  0  0  0
+   -9.8231  -84.6143  -42.4203 N   0  0  0  0  0  0
+   -7.8833  -88.1554  -44.6381 N   0  0  0  0  0  0
+   -3.6346  -87.8696  -49.7074 Cl  0  0  0  0  0  0
+   -5.4709  -83.1884  -45.6263 C   0  0  0  0  0  0
+   -6.9161  -83.4899  -46.0068 C   0  0  0  0  0  0
+   -6.1848  -85.9979  -50.4468 Cl  0  0  0  0  0  0
+   -9.9611  -83.6239  -42.2850 H   0  0  0  0  0  0
+  -10.2859  -85.2844  -41.8247 H   0  0  0  0  0  0
+   -7.0540  -88.5754  -44.2324 H   0  0  0  0  0  0
+   -8.2187  -88.5880  -45.4928 H   0  0  0  0  0  0
+  1  2  2  0  0  0
+  1  6  1  0  0  0
+  2  3  1  0  0  0
+  2 13  1  0  0  0
+  3  4  2  0  0  0
+  4  5  1  0  0  0
+  4 17  1  0  0  0
+  5  6  2  0  0  0
+  5  7  1  0  0  0
+  6 14  1  0  0  0
+  7  8  2  0  0  0
+  7 12  1  0  0  0
+  8  9  1  0  0  0
+  9 10  2  0  0  0
+  9 18  1  0  0  0
+ 10 11  1  0  0  0
+ 10 15  1  0  0  0
+ 11 12  2  0  0  0
+ 13 19  1  0  0  0
+ 13 20  1  0  0  0
+ 14 21  1  0  0  0
+ 14 22  1  0  0  0
+ 16 17  1  0  0  0
+M  END
+>  <CHROM.1>
+100.13552066,-58.31911481,-98.61794279,-6.55765990,-86.08214357,-46.66953010
+-3.03428368,1.00740139,-0.45046223
+
+>  <Family>
+A
+
+>  <Name>
+1-3062
+
+>  <PC_uM>
+1.08
+
+>  <RI>
+-2.05871e+09
+
+>  <RL_uM>
+0.19
+
+>  <Rbt.Current_Directory>
+/home/sbray/GitRepos/galaxytools/chemicaltoolbox/rxdock/test-data
+
+>  <Rbt.Executable>
+rbdock ($Id: //depot/dev/client3/rdock/2021.1/src/exe/rbdock.cxx#4 $)
+
+>  <Rbt.Library>
+libRbt.so (2021.1, Build901 2021/07/19)
+
+>  <Rbt.Parameter_File>
+/opt/rDock/data/scripts/dock.prm
+
+>  <Rbt.Receptor>
+receptor.prm
+
+>  <SCORE>
+6.77878
+
+>  <SCORE.INTER>
+8.4
+
+>  <SCORE.INTER.CONST>
+1
+
+>  <SCORE.INTER.POLAR>
+0
+
+>  <SCORE.INTER.REPUL>
+0
+
+>  <SCORE.INTER.ROT>
+3
+
+>  <SCORE.INTER.VDW>
+0
+
+>  <SCORE.INTER.norm>
+0.466667
+
+>  <SCORE.INTRA>
+-1.62122
+
+>  <SCORE.INTRA.DIHEDRAL>
+-1.31362
+
+>  <SCORE.INTRA.DIHEDRAL.0>
+6.0112
+
+>  <SCORE.INTRA.POLAR>
+0
+
+>  <SCORE.INTRA.POLAR.0>
+0
+
+>  <SCORE.INTRA.REPUL>
+0
+
+>  <SCORE.INTRA.REPUL.0>
+0
+
+>  <SCORE.INTRA.VDW>
+-0.964408
+
+>  <SCORE.INTRA.VDW.0>
+-0.995143
+
+>  <SCORE.INTRA.norm>
+-0.0900678
+
+>  <SCORE.RESTR>
+0
+
+>  <SCORE.RESTR.PHARMA>
+0
+
+>  <SCORE.RESTR.PHARMA.con_1>
+0
+
+>  <SCORE.RESTR.PHARMA.con_2>
+0
+
+>  <SCORE.RESTR.PHARMA.con_3>
+0
+
+>  <SCORE.RESTR.PHARMA.con_4>
+0
+
+>  <SCORE.RESTR.norm>
+0
+
+>  <SCORE.SYSTEM>
+0
+
+>  <SCORE.SYSTEM.CONST>
+0
+
+>  <SCORE.SYSTEM.DIHEDRAL>
+0
+
+>  <SCORE.SYSTEM.norm>
+0
+
+>  <SCORE.heavy>
+18
+
+>  <SCORE.norm>
+0.376599
+
+>  <TG_uM>
+0.094
+
+>  <set>
+0
+
+$$$$
