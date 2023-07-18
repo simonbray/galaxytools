@@ -72,6 +72,9 @@ cat rdock_output.sd
 
  > '$output'
 
+#if $fail_if_empty:
+    if [[ -z $(grep '[^[:space:]]' $output) ]] ; then exit 1; fi
+#end if
     ]]></command>
 
     <configfiles>
@@ -112,8 +115,8 @@ END_SECTION
         <param type="data" name="threshold" format="txt" label="Threshold value for docking" optional="true" help="Suitable parameters can be found using the rbhtfinder tool."/>
         <conditional name="filter">
             <param name="filter_select" type="select" label="Filter the docking results" help="Using sdfilter">
-                <option value="filter">Show filter options</option>
                 <option value="no_filter">No filtering</option>
+                <option value="filter">Show filter options</option>
             </param>
             <when value="filter">
                 <param name="score" type="float" optional="true" label="Score filter"
@@ -128,6 +131,7 @@ END_SECTION
         <param name="name" type="boolean" label="Generate name field" truevalue="Y" falsevalue="N" checked="false"
                help="Generate the name field (first line) for cases where this is empty"/>
         <param argument="-seed" type="integer" optional="true" label="Random seed" help=""/>
+	<param name="fail_if_empty" type="boolean" label="Fail job if docking output is empty" checked="false" />
     </inputs>
     <outputs>
         <data name="output" format="sdf" label="rDock on ${on_string}"/>
@@ -514,4 +518,3 @@ An SDF file is produced as output. The binding affinity scores are contained wit
     ]]></help>
     <expand macro="citations"/>
 </tool>
-
